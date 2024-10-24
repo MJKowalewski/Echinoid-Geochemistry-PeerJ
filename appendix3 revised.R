@@ -16,7 +16,7 @@ library(ppcor)
 library(asbio)
 library(DescTools)
 library('vegan')
-source(file='appendix4.R')
+source(file='appendix4 revised.R')
 mycol <- c('skyblue1', 'blue3', 'red1','gray40') # colors for taxa (alphabetically by genus)
 pchtax <- 21:24
 pchreg <- c(21, 22, 24)
@@ -34,11 +34,11 @@ medboot <- function(x, times=99, prob=c(0.5, 0.025, 0.975, 0.25, 0.75)) {
   return(out2)
 }
 # Datasets ====
-bulk <- read.csv('appendix1 revised.csv', stringsAsFactors=T, skip=1) # bulk analyses
-units <- read.csv('appendix1 revised.csv', header=F, nrows=1) # units for trace element ratios
+bulk <- read.csv('appendix1 revised.csv', stringsAsFactors=T, skip=2) # bulk analyses
+units <- read.csv('appendix1 revised.csv', header=F, skip=1, nrows=2) # units for trace element ratios
 colnames(units) <- colnames(bulk)
-nn <- read.csv('appendix2 revised.csv', stringsAsFactors=T, skip=1) # nano data
-map2 <- read.csv('appendix5.csv', header=F, na.strings=c(NA, '.', ''))
+nn <- read.csv('appendix2 revised.csv', stringsAsFactors=T, skip=2) # nano data
+map2 <- read.csv('appendix5 revised.csv', header=F, na.strings=c(NA, '.', ''), skip=1)
 
 # group Encope aberrans and  Encope michelini as Encope spp.
 bulk$species <- as.character(bulk$species)
@@ -236,7 +236,7 @@ for (i in 1:length(elratios)) {
 }
 rownames(regioncomparison) <- names(elratios)
 write.csv(regioncomparison, 'Table 5 revised.csv')
-0.05/13
+
 # body size====
 size.cor <- NULL
 for(i in 1:length(elratios)) {
@@ -287,7 +287,6 @@ mtext(side=3, line=-1, adj=1.07, LETTERS[i], cex=0.8, xpd=NA)
 par(tempar)
 dev.off()
 
-citation('vegan')
 # pca analysis Figure 5====
 ck5 <- which(bulk$Station == 'CK-5')
 select.vars <- c(26:38) # SELECT VARIABLES TO BE INCLUDED IN PCA ANALYSIS
