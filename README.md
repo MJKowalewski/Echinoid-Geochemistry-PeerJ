@@ -1,4 +1,5 @@
 # Echinoid-Geochemistry-PeerJ
+DOI: 10.5281/zenodo.14015168
 Supplementary materials for Gorzelak et al. 2024. Geochemical signatures and nanomechanical properties of echinoid tests from nearshore habitats of Florida: Environmental and physiological controls on echinoid biomineralization. Revised version submitted to PeerJ 10/2024
 
 The repository containes Appendices 1-6 for paper by Gorzelak et al. on echinoid geochemistry. The file will be updated after the acceptance of the manuscript.
